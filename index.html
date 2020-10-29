@@ -32,19 +32,16 @@
 
   </body>
   <script type="text/javascript">
-    function log(value){
-      console.log(value);
-      return value;
-    }
-
     function storeTextValue(){
-      localforage.setItem('textarea'. document.getElementById("textarea").value).then(log);
+      localforage.setItem('textarea'. document.getElementById("textarea").value)
     }
 
     document.getElementById("textarea").addEventListener('input', storeTextValue);
 
-    localforage.getItem('textarea', function(err, value) {
+    localforage.getItem('textarea').then(function(value) {
       document.getElementById("textarea").value = value;
-    });
+    }).catch(function(err){
+      console.error(err)
+    })
   </script>
 </html>
