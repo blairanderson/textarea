@@ -20,7 +20,7 @@
       margin: 0px;
       padding: 0px;">A Textarea</h1>
 
-      <textarea name="text" id="textarea" onchange="localforage.setItem('textarea', this.value, function(){})"
+      <textarea name="text" id="textarea" 
       style="margin: auto; display: block; width: 90vw; height: calc(90vh - 100px); font-size: 12px; zoom: 200%;"></textarea>
       <!-- Optional JavaScript; choose one of the two! -->
       <!-- Option 1: Bootstrap Bundle with Popper.js -->
@@ -32,9 +32,18 @@
 
   </body>
   <script type="text/javascript">
-    // Callback version:
+    var textarea = document.getElementById("textarea");
+
+    function storeTextValue(){
+      localforage.setItem('textarea'. textarea.value).then(function(value){
+        console.log(value)
+      });
+    }
+
+    textarea.addEventListener('input', storeTextValue);
+
     localforage.getItem('textarea', function(err, value) {
-        document.getElementById("textarea").value = value
+        textarea.value = value
     });
   </script>
 </html>
