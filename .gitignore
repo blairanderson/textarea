@@ -1,0 +1,10 @@
+_site
+.sass-cache
+.jekyll-metadata
+.users.yml
+dev-*/node_modules/
+dev-*/build/
+artisticaly.WordPress*.xml
+_image_optim_archive/
+.DS_Store
+**/*/.DS_Store
